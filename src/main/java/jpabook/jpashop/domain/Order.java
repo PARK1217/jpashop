@@ -16,6 +16,17 @@ public class Order {
     @Column(name = "MEMBER_ID")
     private Long memberId;
 
+    @ManyToOne  // 다대일 관계(다수의 주문은 하나의 회원에 속한다)
+    private Member member;
+
+    public Member getMember() {
+        return member;
+    }
+
+    public void setMember(Member member) {
+        this.member = member;
+    }
+
     private LocalDateTime orderDate;
 
     @Enumerated(EnumType.STRING)
